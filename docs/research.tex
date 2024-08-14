@@ -1,0 +1,246 @@
+%%%%%%%%%%%% Attribution %%%%%%%%%%%%
+% This template was created by 
+% Chuck F. Rocca at WCSU and may be
+% copied and used freely for 
+% non-commercial purposes.
+% 10-17-2021
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%% Start Document Header %%%%%%%
+% In creating a new document
+% copy and paste the header 
+% as is.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{article}
+\usepackage[russian]{babel}
+\usepackage{fancyvrb,minted,tcolorbox}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage[scale=0.98,ttdefault]{AnonymousPro}
+\tcbuselibrary{skins,breakable,breakable}
+\tcbuselibrary{minted}
+\definecolor{terminalColor}{RGB}{16,16,16}
+\definecolor{Button1}{RGB}{254,94,86}
+\definecolor{Button2}{RGB}{254,188,45}
+\definecolor{Button3}{RGB}{38,202,59}
+
+\usepackage[left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm,ignoreheadfoot]{geometry}
+\usepackage{array}
+\usepackage[svgnames,table]{xcolor}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c@mmon}{%
+extendedchars=true,
+showtabs=true,
+tab=    ,
+tabsize=4,
+basicstyle=\selectlanguage{russian}\ttfamily\footnotesize,
+breaklines=true,
+breakatwhitespace=true,
+aboveskip=2ex,
+frame=trbl,
+rulecolor=\color{black},
+backgroundcolor=\color{yellow!10},
+xleftmargin=5pt,
+xrightmargin=5pt,
+numbers=left
+}
+\lstset{style=c@mmon}
+
+\lstdefinestyle{mystyle}{
+language={[ANSI]C++},
+style=c@mmon,
+stringstyle=\frenchspacing\color{stringcolour},
+showstringspaces=false,
+alsoletter={1234567890},
+keywordstyle=\color{keywordcolour}\bfseries,
+emph={auto,const,struct,%
+break,continue,else,for,switch,void,%
+case,default,enum,goto,register,sizeof,typedef,%
+char,do,extern,if,return,static,union,while,%
+asm,dynamic_cast,namespace,reinterpret_cast,try,%
+bool,explicit,new,static_cast,typeid,volatile,%
+catch,operator,template,typename,%
+class,friend,private,this,using,%
+const_cast,inline,public,throw,virtual,%
+delete,mutable,protected,wchar_t,%
+or,and,xor,not,assert},
+emphstyle=\color{blue}\bfseries,
+emph={[2]true, false, NULL},
+emphstyle=[2]\color{keywordcolour},
+emph={[3]double,float,int,short,unsigned,long,signed},
+emphstyle=[3]\color{blue},
+emph={[4]1, 2, 3, 4, 5, 6, 7, 8, 9, 0},
+emph={[4]cos,sin,tan,acos,asin,atan,atan2,cosh,sinh,tanh,%
+exp,frexp,ldexp,log,log10,modf,pow,sqrt,ceil,fabs,floor,fmod},
+emphstyle=[4]\color{numpycolour},
+literate=*%
+{:}{{\literatecolour:}}{1}%
+{=}{{\literatecolour=}}{1}%
+{-}{{\literatecolour-}}{1}%
+{+}{{\literatecolour+}}{1}%
+{*}{{\literatecolour*}}{1}%
+{!}{{\literatecolour!}}{1}%
+{[}{{\literatecolour[}}{1}%
+{]}{{\literatecolour]}}{1}%
+{<}{{\literatecolour<}}{1}%
+{>}{{\literatecolour>}}{1}%
+{>>>}{{\textcolor{promptcolour}{>>>}}}{1}%
+,%
+commentstyle=\frenchspacing\color{green},
+morecomment=[l][commentstyle]{//},
+morecomment=[s][commentstyle]{/*}{*/},
+morestring=[b][stringstyle]",
+morestring=[d][stringstyle]',
+}
+\lstset{style=mystyle}
+
+\newcommand*{\arraycolor}[1]{\protect\leavevmode\color{#1}}
+\newcolumntype{A}{>{\columncolor{blue!50!white}}c}
+\newcolumntype{B}{>{\columncolor{LightGoldenrod}}c}
+\newcolumntype{C}{>{\columncolor{FireBrick!50}}c}
+\newcolumntype{D}{>{\columncolor{Gray!42}}c}
+
+\definecolor{gray}{gray}{0.5}
+\colorlet{commentcolour}{green!50!black}
+\colorlet{stringcolour}{red!60!black}
+\colorlet{keywordcolour}{magenta!90!black}
+\colorlet{exceptioncolour}{yellow!50!red}
+\colorlet{commandcolour}{blue!60!black}
+\colorlet{numpycolour}{blue!60!green}
+\colorlet{literatecolour}{magenta!90!black}
+\colorlet{promptcolour}{green!50!black}
+\colorlet{specmethodcolour}{violet}
+\colorlet{indendifiercolour}{green!70!white}
+
+%%%% Header Information %%%%
+    \input{header}
+
+%%%% Document Information %%%%
+    \title{Отчет по практике "Рутокен".}
+    \author{Родионов Филипп}
+    \date{25.07.24}
+
+%%%%%%% End Document Header %%%%%%%
+
+
+%%%% Begin Document %%%%
+% note that the document starts with
+% \begin{document} and ends with
+% \end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%% Format Running Header %%%%%
+\markboth{\theauthor}{\thetitle}
+
+%%%% Insert the Title Information %%%
+\maketitle
+
+%%%% Introduction to the General Template %%%%
+\section{Формулировка вопроса}
+\textbf{Выполнить обзор текущего состояния возможности доступа к смарт-картам из браузера через интерфейс WebUSB.}.
+\section{Постановка задачи}
+\textbf{Часть 1:} Разобраться, что такое Isolated Web App \\
+\textbf{Часть 2:} Реализовать простейший Isolated Web App, использующий WebUSB API для доступа к Рутокен. \\
+
+В рамках задания, в зависимости от статуса возможности доступа в описываемом окружении: предоставить исчерпывающие объяснения причин невозможности доступа или предоставить прототип, реализующий доступ к смарт-карте.
+
+\begin{tcolorbox}
+\textbf{Артефакты: }
+\begin{enumerate}
+    \item Отчет, описывающий, что такое Isolated Web App.
+    \item PoC Isolated Web App с доступом к Рутокен. 
+    \item Небольшая документация к PoC, поясняющая ключевые решения.
+\end{enumerate}
+\end{tcolorbox}
+
+\section{Isolated Web App}
+\textbf{Web USB} -- это JavaScript API, который даёт возможность веб-приложениям взаимодействовать с локальными USB-устройствами на компьютере. Согласно спецификации WebUSB, некоторые классы интерфейсов защищены от доступа веб-приложений, чтобы предотвратить доступ вредоносных скриптов к потенциально чувствительным данным. \\
+
+Спецификация WebUSB определяет блок-лист уязвимых устройств и таблицу защищённых классов интерфейсов, доступ к которым заблокирован через WebUSB. С разрешением на использование функции «usb-unrestricted» изолированные веб приложения смогут получить доступ к устройствам из блок-листа и защищённым классам интерфейсов. \\
+\textbf{Isolated Web App} -- это приложения, не размещённые на реальных веб-серверах, а упакованные в Web Bundles, подписанные их разработчиком и распространённые среди конечных пользователей. Обычно они создаются для внутреннего использования компаниями. 
+Иными словами, веб приложение (сами файлы) хостится на компьютере конечного пользователя.\\
+
+\section{Ход работы}
+\subsection{WebUSB API внутри IWA}
+Данное исследование направлено на изучение работы WebUSB API с устройствами, входящими в блок-лист устройств, с помощью изолированных веб приложений (IWA). \\
+В качестве готового проекта, содержащего функции IWA, был взят \href{https://github.com/GoogleChromeLabs/telnet-client}{\textbf{telnet}}. 
+
+Было обнаружено, что часть задачи, совпадающей с той, что была получена в начале уже выполнена в проекте \href{https://github.com/jbirkholz/webusbAuth}{\textbf{WebUSBAuth}}. \\
+Проект демонстрирует взаимодействие со смарт-картой через WebUSB API при помощбю APDU комманд. Но, поскольку смарт карта входит в список запрещенных устройств, было предложено использовать архитектуру изолированного веб-приложения, реализованного в проекте \textbf{telnet}. 
+Использование изолированного приложения позволяет обойти ограничения черного списка WebUSB API, предоставляя разработчикам доступ к функционалу смарт-карт. 
+
+\subsection{WebUSBAuth тестовый запуск}
+Было решено протестировать проект \textbf{WebUSBAuth} на MacOS. Далее - подробная инструкция по сборке и запуску проекта в Chrome 129. 
+\begin{enumerate}
+    \item Предварительно скачать архив проекта. 
+    \item Предварительно скачать \href{https://www.python.org/downloads/macos/}{\textbf{python}}. 
+    \item С помощью терминала перейти в директорию проекта. 
+    \item Запустить python сервер. 
+    \item В браузере перейти по адресу \emph{http://localhost:8000/demo.html}
+\end{enumerate} 
+
+При нажатии на кнопку connect reader и выборе нужного устройсва \emph{Рутокен} в панели выводится ошибка при вызове функции \emph{claimInterface}, которая происходит при попытке получения доступа к устройствам из \href{https://groups.google.com/a/chromium.org/g/blink-dev/c/LZXocaeCwDw/m/GLfAffGLAAAJ}{{блок-листа}} WebUSB API. \\
+Для решения проблемы необходимо реализовать этот проект в изолированном приложении. \\
+
+Но на данном этапе я еще не знал, что ошибка заключается именно в этом, потому решил «подсмотреть» как Linux общается с токеном с помощью специальных инструментов: \\
+\begin{enumerate} 
+    \item Для этого установить  Debian  (ARM64)  в  виртуальной машине UTM.
+    \item Использовать  следующие  инструменты:
+    \begin{enumerate}
+ 	      \item \textbf{libccid}: Библиотека  для  работы  со  смарт-картами  и  токенами  в  Linux.
+     	  \item \textbf{pcscd}: Фоновая программа  для  работы  с  USB-ридерами  смарт-карт  (необходимо  настроить  максимальное  логирование).
+     	  \item \textbf{opensc-tool}: Утилита  командной  строки  для  отправки  APDU-команд  на  токен. 
+    \end{enumerate}
+    \item Проанализировать  логи  pcscd  и  определить  формат  ccid-пакетов,  которые  отправляются  на  токен. 
+    \item Использовать  полученные  данные  для  реализации  взаимодействия  с токеном через WebUSB API в изолированном веб-приложении. 
+\end{enumerate} 
+
+\subsection{Запуск Debian на UTM и Windows 11 на Parallels}
+Было решено использовать виртуальную машину \href{https://mac.getutm.app}{{UTM}} и с ее помощью запустить \href{https://mac.getutm.app/gallery/debian-12}{{Debian 12}} на macOS. \\
+Проблема заключалась в том, что на ARM впринципе невозможно выполнить данное задание по причине того, что поддержка функции \emph{usb-unrestricted} добавлена в Chrome 128, работающий на движке \href{https://www.chromium.org/blink/}{{Blink}}. Но Chrome на macOS, на процессоре Apple Silicon (архитектура ARM), работает на движке WebKit $\Rightarrow$ \emph{usb-unrestricted} на нем не функционирует. 
+
+Так же была предпринята попытка запустить Windows 11 на виртуальной машине \href{https://www.parallels.com}{{Parallels}} для проверки работы проекта WebUSBAuth, но, как позже выяснилось: "В настоящее время невозможно подключить какое-либо USB-устройство к виртуальной машине MacOS Arm." - из \href{https://kb.parallels.com/128867}{{документации}} Parallels. 
+
+\subsection{Запуск проекта на Windows 10 (x64)}
+Следующим шагом мной был предпринят запуск проекта на ОС Windows 10 на процессоре x86-64. В отлитчие от запуска в Linux, где необходима установка Google Chrome unstable (версия Chrome для разработчиков), на Windows потребовалось установить Chrome Canary. 
+
+Ниже представлен измененный вариант запуска и установки IWA под Windows.
+\begin{tcblisting}{listing engine=minted,minted style=native,
+    minted language=python,enhanced,
+    colback=terminalColor,colframe=terminalColor,listing only, title=\tikz {
+        \node[circle,fill=Button1,inner sep=3pt] (c) at (0,0){};
+        \node[circle,fill=Button2,inner sep=3pt] (c) at (0.5,0){};
+        \node[circle,fill=Button3,inner sep=3pt] (c) at (1,0){};
+    } ~~~~~~Terminal}
+    "C:\Users\Филипп\AppData\Local\Google\Chrome SxS\Application\chrome.exe" --enable-features=IsolatedWebApps,IsolatedWebAppDevMode --install-isolated-web-app-from-url=http://localhost:8000
+\end{tcblisting}
+После установки изолированного приложения Chrome не разрешал работать встроенным JS скриптам внутрь html разметки файла \emph{index.html} и Dev Tools появлялась ошибка \emph{"Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'self'". Either the 'unsafe-inline' keyword..."}. Она решилась путем добавления Content Security Policy в \emph{manifest.json} и в \emph{index.html}, а так же выносом JS скрипта в отдельный файл \emph{main.js}. 
+
+Далее, при попытке соединиться с токеном, нажав на кнопку \emph{"connect reader"}, в консоли возникала ошибка: \emph{"Failed to execute 'open' on
+'USBDevice': Access denied".} Как выяснилось, Windows ограничивает доступ к смарт-картам, как к USB-устройству. \\
+Это подтверждено в \href{https://groups.google.com/a/chromium.org/g/blink-dev/c/LZXocaeCwDw/m/GLfAffGLAAAJ}{{summary}} описания ограничений доступа к классам устройств из WebUSB. \emph{"These interface classes are already mostly blocked by an operating system’s built-in class drivers."}
+
+\subsection{Успешный запуск проекта на Ubuntu VirtualBox (x64)}
+Финальным этапом было решено загрузить бесплатную виртуальную машину VirtualBox на компьютер с процессором x86-64 с дистрибутивом Ubuntu (24.04). \\
+Проект успешно запустился и на токен стало возможным отправлять APDU-команды. Был изменен файл \emph{capdu.js}, чтобы при отправке команды в консоль выводился серийный номер токена, по условию задания. Ниже представлена часть, где была изменена команда.  
+
+\lstinputlisting[style=mystyle]{capdu.js}
+
+\end{document}
